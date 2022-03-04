@@ -3,6 +3,7 @@ import React from 'react';
 import Images from './src/constants/Images';
 import Colors from './src/constants/Colors';
 import Layout from './src/constants/Layout';
+import Button from './src/components/Button';
 
 const App = () => {
   return (
@@ -26,6 +27,10 @@ const App = () => {
             bottom: 0,
           }}>
           <Text>hello</Text>
+
+          <View style={{flex: 1, margin: 50}}>
+            <Button text="Login" onPress={() => console.log('giriş yaotim')} />
+          </View>
         </View>
       </View>
     </View>
