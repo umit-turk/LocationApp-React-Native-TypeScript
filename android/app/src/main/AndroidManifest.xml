@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.locationapp">
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+   
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
@@ -21,5 +21,9 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="AIzaSyAL4_TnYYe9-wwYRfX-eDYq3U-pT_PXurQ"/>
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>
