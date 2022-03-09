@@ -6,8 +6,18 @@ import Layout from '../../../constants/Layout';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextInput';
 import styles from './styles';
+import { useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
+
+
+  const handleLogin = async () => {
+    await  AsyncStorage.setItem('isAuth', JSON.stringify({isAuth:true}));
+    console.log("giriş yaptım");
+    
+    };
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -32,7 +42,7 @@ const Login = () => {
             <TextField label="Kullanıcı adı" />
             <TextField label="Sifre" secureTextEntry />
             <View style={{marginVertical: 70}}>
-              <Button text="Login" onPress={() => console.log('hellooo')} />
+              <Button text="Login" onPress={async () => await handleLogin()} />
             </View>
           </View>
         </View>
