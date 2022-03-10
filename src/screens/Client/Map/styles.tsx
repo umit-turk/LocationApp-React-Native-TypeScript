@@ -1,0 +1,70 @@
+import {StyleSheet} from 'react-native';
+import {Colors, FontFamilies, FontSize, Layout} from '../../../constants';
+
+export default StyleSheet.create({
+  container: {flex: 1},
+  zoomContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 20,
+    end: 20,
+    borderRadius: 5,
+    backgroundColor: Colors.cF2F4F5,
+  },
+  imageContainer: {
+    position: 'absolute',
+    zIndex: 1,
+    top: -110,
+    backgroundColor: Colors.cFFFFFF,
+    borderRadius: 50,
+    left: Layout.width * 0.32,
+  },
+  image: {width: 100, height: 100, borderRadius: 75},
+  text: {fontFamily: FontFamilies.msBold, fontSize: FontSize.f24},
+  description: {
+    fontFamily: FontFamilies.msRegular,
+    fontSize: FontSize.f14,
+    color: Colors.c7c7e80,
+    marginVertical: 15,
+  },
+  descriptionContainer: {
+    marginVertical: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {padding: 15, backgroundColor: 'red'},
+  spacer: {
+    width: '100%',
+    borderBottomWidth: 1,
+    borderColor: Colors.c7c7e80,
+  },
+  dotContainer: {justifyContent: 'center', alignItems: 'center'},
+  arrow: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 6,
+    borderRightWidth: 6,
+    borderBottomWidth: 10,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: Colors.c90BF00,
+  },
+  dot: {
+    backgroundColor: Colors.c90BF00,
+    width: 25,
+    height: 25,
+    borderWidth: 3,
+    borderColor: Colors.cFFFFFF,
+    borderRadius: 15,
+    shadowColor: Colors.c000000,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    elevation: 4,
+    shadowOpacity: 0.5,
+  },
+});

@@ -11,6 +11,7 @@ import {useEffect} from 'react';
 import {useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Colors } from '../constants';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -21,8 +22,20 @@ export default function StackNavigator() {
 
   const getIsAuth = async () => {
     const response = await AsyncStorage.getItem('isAuth');
-    setIsAuth(response?.isAuth);
-    console.log('response', response);
+
+    if(response) {
+      const responseObject = JSON.parse(response)
+   
+
+    if(responseObject?.isAuth){
+      setIsAuth(true);
+
+    }else {
+      setIsAuth(false);
+    }
+
+    console.log('response',isAuth, response);
+  }
   };
 
   useEffect(() => {
@@ -31,7 +44,7 @@ export default function StackNavigator() {
 
   const initialRouteName = isAuth ? AppScreens.Login : AppScreens.Home;
 
-  return isAuth ? (
+  return !isAuth ? (
     <Stack.Navigator initialRouteName={initialRouteName}>
       <Stack.Screen
         name={AppScreens.Login}
@@ -57,14 +70,17 @@ export default function StackNavigator() {
           iconName = focused ? 'person' : 'person';
         }
 
-        return <Icon name={iconName} size={size} color={color} />
-      }
-    })}>
+        return <Icon name={iconName} size={size} color={Colors.c90BF00} />
+      },
+      tabBarActiveTintColor:Colors.c90BF00
+    }
+    
+    )}>
       <Tab.Screen name={AppScreens.Home} component={HomeScreen} />
       <Tab.Screen
         name={AppScreens.Map}
         component={MapScreen}
-        options={{headerShown: false}}
+        //options={{headerShown: false}}
       />
       <Tab.Screen name={AppScreens.Profile} component={ProfileScreen} />
      

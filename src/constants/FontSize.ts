@@ -11,4 +11,5 @@ export default {
     f19:normalize(19),
     f20:normalize(20),
     f21:normalize(21),
+    f24:normalize(24),
 }
